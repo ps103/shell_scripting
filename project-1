@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "Date is:"
+date
+echo "Uptime is:"
+uptime
+echo "Currently connected is:"
+w
+echo "Last Login:"
+last -a | grep head -5
+echo "------------------------------"
+echo "'ABOUT DISK AND MEMORY'"
+echo "used Disk Space is :" && df -h | xargs | awk {'print $10,$9'}
+echo "Available Disk Space is:" && df -h | xargs | awk {'print $11,"/",$9'}
+echo "RAM is free" && free -h | xargs | awk {'print $10,"/",$8'}
